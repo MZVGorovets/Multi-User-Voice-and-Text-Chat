@@ -18,7 +18,7 @@ Welcome to the Multi-Client Voice and Text Chat project, a client-server applica
 
 1. **Clone the Repository:** Clone the project repository to your local machine.
 
-2. **Requirements:** Copy the contents of requirements.txt and paste it into the terminal.
+2. **Requirements:** Copy the contents of `requirements.txt` and paste it into the terminal.
 
 3. **Server Setup:**  Copy the path to the `Server.py` and paste it into the terminal like this: <br> `python PATH\Server.py`<br> If you wish, you can set your own Port like this: <br> `python PATH\Server.py <PORT>`<br> Otherwise the Port will be automatically set to 2000.
 
