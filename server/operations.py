@@ -1,4 +1,3 @@
-import time
 from cryptography.fernet import Fernet
 from message_manipulations import *
 from supersocket import *
@@ -12,16 +11,18 @@ from exit_room import *
 from receiving_sound import *
 from regular_message import *
 from message_manipulations import *
+from supersocket import *
 
 
 class Operations:
     # getting a message and understanding what they doing
-    def __init__(self, client, address, server_socket):
-        self.server_socket = server_socket
-        self.address = address
+    def __init__(self, client, key):
         self.client = client
-        self.key = "qWnLil4egMMSJO0__acQgnlaCbnNcR0tLl2KQak9L-M="
-        self.cipher_suite = Fernet(self.key)
+        self.key = key
+        self.public_key = SuperSocket(self.client).recv_msg()
+        ciphered_key = Key_Encryption(self.key, self.public_key).returning()
+        SuperSocket(self.client).send_msg(ciphered_key)
+
         while True:
             self.data = Message_Manipulations(
                 self.key, self.client).receiving_message()

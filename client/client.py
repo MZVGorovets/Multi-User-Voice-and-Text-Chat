@@ -10,8 +10,9 @@ class Client():
         print(self.ip + ": " + str(self.port))
         self.client_socket = socket.socket()
         self.client_socket.connect((self.ip, self.port))
-        self.cipher_suite = "qWnLil4egMMSJO0__acQgnlaCbnNcR0tLl2KQak9L-M="
-        Sign_In_Window(self.client_socket, self.cipher_suite).mainloop()
+        self.key = Key_Encryption(self.client_socket).returning()
+        print(self.key)
+        Sign_In_Window(self.client_socket, self.key).mainloop()
 
 
 if __name__ == "__main__":

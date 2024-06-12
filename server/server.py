@@ -14,16 +14,17 @@ class Server:
         print(port)
         self.server_socket.listen(100)
         print("Listening for clients...")
+        self.key = Fernet.generate_key()
+        print(self.key)
 
         while True:
             client, address = self.server_socket.accept()
             threading.Thread(target=self.play_client,
-                             args=(client, address)).start()
+                             args=(client, self.key)).start()
 
     # add a client to list of client and run the main class
-    def play_client(self, client, address):
-        CLIENT_LIST.append((client, address))
-        Operations(client, address, self.server_socket)
+    def play_client(self, client, key):
+        Operations(client, key)
 
 
 if __name__ == "__main__":
