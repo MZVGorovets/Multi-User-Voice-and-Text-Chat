@@ -6,7 +6,7 @@ Welcome to the Multi-Client Voice and Text Chat project, a client-server applica
 
 ## Features
 
-- **Encryption:** All messages, whether text or voice, are encrypted using the AES encryption algorithm, but passwords are also encrypted using the HASH encryption algorithm before transmission over the network. These encryptions ensure that even if intercepted, the content of the messages will remain secure and cannot be deciphered by unauthorized parties. The encryption mechanism adds a layer of protection to the user's communication, preserving sensitive information and preserving the user's privacy.
+- **Encryption:** All messages, whether text or voice, are encrypted using the AES encryption algorithm, also RSA and HASH encryption used for encrypting the AES key(RSA) and password(HASH) encryption before transmission over the network. These encryptions ensure that even if intercepted, the content of the messages will remain secure and cannot be deciphered by unauthorized parties. The encryption mechanism adds a layer of protection to the user's communication, preserving sensitive information and preserving the user's privacy.
 
 - **Real-Time Messaging:** The project provides real-time messaging, ensuring fast communication between users. This feature ensures instant delivery of messages, facilitating efficient and responsive interactions within the platform.
 
