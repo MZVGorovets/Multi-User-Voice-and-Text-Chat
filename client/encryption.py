@@ -1,7 +1,6 @@
 from cryptography.fernet import Fernet
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
-import time
 from supersocket import *
 
 
@@ -30,7 +29,6 @@ class Key_Encryption():
         self.private_key = key.export_key()
         self.public_key = key.publickey().export_key()
 
-        time.sleep(2)
         SuperSocket(self.client_socket).send_msg(self.public_key)
         self.key = SuperSocket(self.client_socket).recv_msg()
         private_key_obj = RSA.import_key(self.private_key)
