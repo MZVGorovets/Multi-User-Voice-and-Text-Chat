@@ -24,7 +24,11 @@ class Server:
 
     # add a client to list of client and run the main class
     def play_client(self, client, key):
-        Operations(client, key)
+        self.client = client
+        self.key = key
+        self.db = DB()
+        self.operations = Operations(self.client, self.key, self.db)
+        self.operations.operations()
 
 
 if __name__ == "__main__":
