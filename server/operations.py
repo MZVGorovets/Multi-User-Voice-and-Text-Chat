@@ -16,7 +16,8 @@ from supersocket import *
 
 class Operations:
     # getting a message and understanding what they doing
-    def __init__(self, client, key):
+    def __init__(self, client, key, db):
+        self.db = db
         self.client = client
         self.key = key
         self.public_key = SuperSocket(self.client).recv_msg()
@@ -29,12 +30,12 @@ class Operations:
             splited_data = self.data.split("!!!")
 
             if splited_data[0] == "sign_in":
-                Sign_In(splited_data[1], self.client, self.key)
+                Sign_In(splited_data[1], self.client, self.key, self.db)
 
 
 # ___________________________________________________________________________________________________________________________________
             elif splited_data[0] == "sign_up":
-                Sign_Up(splited_data[1], self.client, self.key)
+                Sign_Up(splited_data[1], self.client, self.key, self.db)
 
 
 # ___________________________________________________________________________________________________________________________________
